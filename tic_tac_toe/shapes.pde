@@ -1,11 +1,11 @@
 private void drawCircle(int x, int y) {
-  circle(x, y, CIRCLE_RADIUS);
+  circle(x, y, width / 3);
 }
 
 private void drawX(int x, int y) {
   //x and y correspond to the center of the X
-  line(x - (X_SIZE / 2), y - (X_SIZE / 2), x + (X_SIZE / 2), y + (X_SIZE / 2));
-  line(x + (X_SIZE / 2), y - (X_SIZE / 2), x - (X_SIZE / 2), y +(X_SIZE / 2));
+  line(x - (width / 6), y - (height / 6), x + (width / 6), y + (height / 6));
+  line(x + (width / 6), y - (height / 6), x - (width / 6), y + (height / 6));
 }
 
 public void drawShape(int x, int y, boolean isCircle) {
@@ -19,16 +19,16 @@ public void drawShape(int x, int y, boolean isCircle) {
 public void drawShape(int move, boolean isCircle) {
   switch(move) {
     case 0:
-      drawShape(83, 83, isCircle);
+      drawShape(0, 0, isCircle);
       break;
     case 1:
-      drawShape(250, 83, isCircle);
+      drawShape(width / 6, height / 6, isCircle);
       break;
     case 2:
-      drawShape(417, 83, isCircle);
+      drawShape((2 * width) / 3, 0, isCircle);
       break;
     case 3:
-      drawShape(83, 250, isCircle);
+      drawShape(0, 250, isCircle);
       break;
     case 4:
       drawShape(250, 250, isCircle);
@@ -51,8 +51,8 @@ public void drawShape(int move, boolean isCircle) {
 
 
 public void drawBoard() {
-  line(BOARD_SIZE / 3, 0, BOARD_SIZE / 3, BOARD_SIZE);
-  line(2 * (BOARD_SIZE / 3), 0, 2 * (BOARD_SIZE / 3), BOARD_SIZE);
-  line(0, BOARD_SIZE / 3, BOARD_SIZE, BOARD_SIZE / 3);
-  line(0, 2 * (BOARD_SIZE / 3), BOARD_SIZE, 2 * (BOARD_SIZE / 3));
+  line(width / 3, 0, width / 3, height);
+  line(2 * (width / 3), 0, 2 * (width / 3), height);
+  line(0, height / 3, width, height / 3);
+  line(0, 2 * (height / 3), width, 2 * (height / 3));
 }
