@@ -1,2 +1,2 @@
-public static final int CIRCLE_RADIUS = 100;
-public static final int X_SIZE = 100;//size of the "X" used in the game
+public static final int CIRCLE_SHAPE = 0;
+public static final int X_SHAPE = 1;

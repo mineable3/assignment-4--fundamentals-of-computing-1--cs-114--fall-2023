@@ -8,47 +8,45 @@ private void drawX(int x, int y) {
   line(x + (width / 6), y - (height / 6), x - (width / 6), y + (height / 6));
 }
 
-public void drawShape(int x, int y, boolean isCircle) {
-  if(isCircle) {
+public void drawShape(int x, int y, int shape) {
+  if(shape == 0) {
     drawCircle(x, y);
   } else {
     drawX(x, y);
   }
 }
 
-public void drawShape(int move, boolean isCircle) {
+public void drawShape(int move, int shape) {
   switch(move) {
     case 0:
-      drawShape(0, 0, isCircle);
+      drawShape(width / 6, height / 6, shape);
       break;
     case 1:
-      drawShape(width / 6, height / 6, isCircle);
+      drawShape((3 * width) / 6, height / 6, shape);
       break;
     case 2:
-      drawShape((2 * width) / 3, 0, isCircle);
+      drawShape((5 * width) / 6, height / 6, shape);
       break;
     case 3:
-      drawShape(0, 250, isCircle);
+      drawShape(width / 6, (3 * height) / 6, shape);
       break;
     case 4:
-      drawShape(250, 250, isCircle);
+      drawShape((3 * width) / 6, (3 * height) / 6, shape);
       break;
     case 5:
-      drawShape(417, 250, isCircle);
+      drawShape((5 * width) / 6, (3 * height) / 6, shape);
       break;
     case 6:
-      drawShape(83, 417, isCircle);
+      drawShape(width / 6, (5 * height) / 6, shape);
       break;
     case 7:
-      drawShape(250, 417, isCircle);
+      drawShape((3 * width) / 6, (5 * height) / 6, shape);
       break;
     case 8:
-      drawShape(417, 417, isCircle);
+      drawShape((5 * width) / 6, (5 * height) / 6, shape);
       break;
   }
 }
-
-
 
 public void drawBoard() {
   line(width / 3, 0, width / 3, height);
