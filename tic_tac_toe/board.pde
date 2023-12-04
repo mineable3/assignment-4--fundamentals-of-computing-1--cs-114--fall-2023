@@ -23,7 +23,7 @@ public class Board {
       drawShape(playerMove, CIRCLE_SHAPE);
       board[playerMove] = 2;
       robotPlays();
-      findWinner();
+      findIfPlayerWon();
     } else {
       println("That cell is already taken!");
     }
@@ -39,5 +39,92 @@ public class Board {
     }
   }
 
-  private void findWinner() {}
+  private void findIfPlayerWon() {
+    //horizontal rows
+    if(board[0] == board[1] && board[1] == board[2] && board[2] == 2) {
+      playing = false;
+      println("The player has won!");
+      return ;
+    } else if(board[3] == board[4] && board[4] == board[5] && board[5] == 2) {
+      playing = false;
+      println("The player has won!");
+      return ;
+    } else if(board[6] == board[7] && board[7] == board[8] && board[8] == 2) {
+      playing = false;
+      println("The player has won!");
+      return ;
+    }
+
+    //vertical rows
+    if(board[0] == board[3] && board[3] == board[6] && board[6] == 2) {
+      playing = false;
+      println("The player has won!");
+      return ;
+    } else if(board[1] == board[4] && board[4] == board[7] && board[7] == 2) {
+      playing = false;
+      println("The player has won!");
+      return ;
+    } else if(board[2] == board[5] && board[5] == board[8] && board[8] == 2) {
+      playing = false;
+      println("The player has won!");
+      return ;
+    }
+
+    //diagonals
+    if(board[0] == board[4] && board[4] == board[8] && board[8] == 2) {
+      playing = false;
+      println("The player has won!");
+      return ;
+    } else if(board[2] == board[4] && board[4] == board[6] && board[6] == 2) {
+      playing = false;
+      println("The player has won!");
+      return ;
+    }
+  }
+
+  //Just copy and paste the logic from findIfPlayerWon() later
+  //and change the println statements and checking value of each square
+
+  private void findIfBotWon() {
+    //horizontal rows
+    if(board[0] == board[1] && board[1] == board[2] && board[2] == 1) {
+      playing = false;
+      println("The computer has won!");
+      return ;
+    } else if(board[3] == board[4] && board[4] == board[5] && board[5] == 1) {
+      playing = false;
+      println("The computer has won!");
+      return ;
+    } else if(board[6] == board[7] && board[7] == board[8] && board[8] == 1) {
+      playing = false;
+      println("The computer has won!");
+      return ;
+    }
+
+    //vertical rows
+    if(board[0] == board[3] && board[3] == board[6] && board[6] == 1) {
+      playing = false;
+      println("The computer has won!");
+      return ;
+    } else if(board[1] == board[4] && board[4] == board[7] && board[7] == 1) {
+      playing = false;
+      println("The computer has won!");
+      return ;
+    } else if(board[2] == board[5] && board[5] == board[8] && board[8] == 1) {
+      playing = false;
+      println("The computer has won!");
+      return ;
+    }
+
+    //diagonals
+    if(board[0] == board[4] && board[4] == board[8] && board[8] == 1) {
+      playing = false;
+      println("The computer has won!");
+      return ;
+    } else if(board[2] == board[4] && board[4] == board[6] && board[6] == 1) {
+      playing = false;
+      println("The computer has won!");
+      return ;
+    }
+  }
 }
