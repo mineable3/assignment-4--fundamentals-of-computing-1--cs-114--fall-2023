@@ -13,7 +13,7 @@ void draw() {}
 
 void keyReleased() {
   if(keyCode >= 48 && keyCode <= 56) {
-    tictactoe.playerPressed(int(keyCode));
+    tictactoe.playerPressed(keyCode);
   } else {
     throw new InputMismatchException("Moves can only be numbers 0 through 8");
   }

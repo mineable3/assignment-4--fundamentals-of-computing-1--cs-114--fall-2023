@@ -16,14 +16,18 @@ public class Board {
     }
     drawShape(botMove, X_SHAPE);
     board[botMove] = 1;
+    findIfBotWon();
   }
 
-  private void playerPlays() {
+  private void playOneTurn() {
     if((board[playerMove] == 0)) {
       drawShape(playerMove, CIRCLE_SHAPE);
       board[playerMove] = 2;
-      robotPlays();
       findIfPlayerWon();
+      if(playing) {
+        println("game is still in play");
+        robotPlays();
+      }
     } else {
       println("That cell is already taken!");
     }
@@ -33,7 +37,7 @@ public class Board {
     if(playing) {
       playerMove = inputKey;
       playerMove -= 48; //making key code to correlate to the actual number pressed
-      playerPlays();
+      playOneTurn();
     } else {
       println("The game has ended");
     }
@@ -81,9 +85,6 @@ public class Board {
       return ;
     }
   }
-
-  //Just copy and paste the logic from findIfPlayerWon() later
-  //and change the println statements and checking value of each square
 
   private void findIfBotWon() {
     //horizontal rows
