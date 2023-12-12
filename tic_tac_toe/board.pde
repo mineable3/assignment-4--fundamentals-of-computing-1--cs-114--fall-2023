@@ -3,7 +3,7 @@ import java.lang.Math;
 public class Board {
 
   private int playerMove, botMove = (int)(9 * Math.random());
-  public boolean playing = true;
+  private boolean playing = true;
   private int[] board = new int[9];
 
   public Board() {
@@ -17,6 +17,7 @@ public class Board {
     drawShape(botMove, X_SHAPE);
     board[botMove] = 1;
     findIfBotWon();
+    findIfTie();
   }
 
   private void playOneTurn() {
@@ -126,6 +127,21 @@ public class Board {
       playing = false;
       println("The computer has won!");
       return ;
+    }
+  }
+  
+  private void findIfTie(){
+    int numOfEmptyCells = 0;
+    for(int cell: board){
+      if(cell == 0) {
+        numOfEmptyCells +=1;
+      }
+    }
+    
+    
+    if(numOfEmptyCells == 0){
+      playing = false;
+      println("It's a tie!");
     }
   }
 }

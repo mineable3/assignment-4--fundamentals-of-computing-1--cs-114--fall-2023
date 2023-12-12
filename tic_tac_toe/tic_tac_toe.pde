@@ -1,4 +1,4 @@
-import java.util.InputMismatchException;
+import java.util.*;
 
 Board tictactoe;
 
@@ -12,9 +12,9 @@ void setup() {
 void draw() {}
 
 void keyReleased() {
-  if(keyCode >= 48 && keyCode <= 56) {
+  try {
     tictactoe.playerPressed(keyCode);
-  } else {
-    throw new InputMismatchException("Moves can only be numbers 0 through 8");
+  } catch(Exception e) {
+    println("Moves can only be numbers 0 through 8");
   }
 }
